@@ -62,9 +62,12 @@ modes['MERICA'] =    Mode(True,  False, None, 2.5,  merica())
 modes['VDAY'] =      Mode(True,  False, None, None, v_day())
 modes['STPAT'] =     Mode(True,  False, None, 2.5,  st_pat())
 modes['GLOW'] =      Mode(True,  False, None, None, glow())
-modes['RAINBOW'] =   Mode(True,  False, 50,   0.05, rainbow())
+modes['RAINBOW'] =   Mode(True,  False, 5000, 1, rainbow())
 modes['DISCO'] =     Mode(False, True,  10,   0.01, rainbow())
 modes['HALLOWEEN'] = Mode(False, True,  None, 0.25, halloween())
 
 def list():
     return '\n\t'.join(modes.keys())
+
+# Set IP : 222
+# python party.py RAINBOW 222

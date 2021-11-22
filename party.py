@@ -6,7 +6,7 @@ import socket
 import random
 import asyncio
 from lib import kasabulb, modes
-from kasa import SmartBulb
+from kasa import SmartBulb, Discover
 
 def list_modes():
     print(f'Available party modes:\n\t{modes.list()}')
@@ -107,6 +107,10 @@ async def start():
 
 if __name__ == '__main__':
     try:
+       devices = asyncio.run(Discover.discover())
+       for addr, dev in devices.items():
+           print(f"{addr} >> {dev}")
+       # asyncio.run(dev.update())
        asyncio.run(start())
     except KeyboardInterrupt:
        asyncio.run(stop())
